@@ -1,5 +1,4 @@
-capstone_env/*
 # Python virtual environments
-venv/
-.venv/
+capstone_env/
+.capstone_env/
 env/
