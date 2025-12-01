@@ -1,0 +1,343 @@
+Running python script
+Reading in data.
+Dimensionality Reduction.
+Starting quantum stuff: RealAmplitudes
+{'ansatz': 'RealAmplitudes', 'optimizer': 'COBYLA', 'reps': 1}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+/users/mdt00017/capstone/vqc_training.py:119: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  scores = pd.concat([scores, new_row], ignore_index=True)
+      CV Time  Train Score  Validation Score          ansatz optimizer reps
+0  930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+{'ansatz': 'RealAmplitudes', 'optimizer': 'COBYLA', 'reps': 2}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+      CV Time  Train Score  Validation Score          ansatz optimizer reps
+0  930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1  980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+{'ansatz': 'RealAmplitudes', 'optimizer': 'COBYLA', 'reps': 3}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+{'ansatz': 'RealAmplitudes', 'optimizer': 'COBYLA', 'reps': 4}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+{'ansatz': 'RealAmplitudes', 'optimizer': 'COBYLA', 'reps': 5}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4  1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+{'ansatz': 'RealAmplitudes', 'optimizer': 'COBYLA', 'reps': 6}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4  1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5  1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+{'ansatz': 'EfficientSU2', 'optimizer': 'COBYLA', 'reps': 1}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4  1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5  1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+6   998.497598     0.504045          0.507705    EfficientSU2    COBYLA    1
+{'ansatz': 'EfficientSU2', 'optimizer': 'COBYLA', 'reps': 2}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4  1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5  1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+6   998.497598     0.504045          0.507705    EfficientSU2    COBYLA    1
+7  1079.475374     0.511327          0.505272    EfficientSU2    COBYLA    2
+{'ansatz': 'EfficientSU2', 'optimizer': 'COBYLA', 'reps': 3}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4  1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5  1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+6   998.497598     0.504045          0.507705    EfficientSU2    COBYLA    1
+7  1079.475374     0.511327          0.505272    EfficientSU2    COBYLA    2
+8  1168.438928     0.540858          0.498783    EfficientSU2    COBYLA    3
+{'ansatz': 'EfficientSU2', 'optimizer': 'COBYLA', 'reps': 4}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+       CV Time  Train Score  Validation Score          ansatz optimizer reps
+0   930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1   980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2  1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3  1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4  1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5  1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+6   998.497598     0.504045          0.507705    EfficientSU2    COBYLA    1
+7  1079.475374     0.511327          0.505272    EfficientSU2    COBYLA    2
+8  1168.438928     0.540858          0.498783    EfficientSU2    COBYLA    3
+9  1251.808671     0.529126          0.489862    EfficientSU2    COBYLA    4
+{'ansatz': 'EfficientSU2', 'optimizer': 'COBYLA', 'reps': 5}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  Validation Score          ansatz optimizer reps
+0    930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1    980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2   1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3   1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4   1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5   1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+6    998.497598     0.504045          0.507705    EfficientSU2    COBYLA    1
+7   1079.475374     0.511327          0.505272    EfficientSU2    COBYLA    2
+8   1168.438928     0.540858          0.498783    EfficientSU2    COBYLA    3
+9   1251.808671     0.529126          0.489862    EfficientSU2    COBYLA    4
+10  1336.839705     0.521440          0.473642    EfficientSU2    COBYLA    5
+{'ansatz': 'EfficientSU2', 'optimizer': 'COBYLA', 'reps': 6}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  Validation Score          ansatz optimizer reps
+0    930.781539     0.511327          0.502839  RealAmplitudes    COBYLA    1
+1    980.124614     0.533172          0.501217  RealAmplitudes    COBYLA    2
+2   1031.975230     0.507686          0.504461  RealAmplitudes    COBYLA    3
+3   1080.460404     0.515372          0.501217  RealAmplitudes    COBYLA    4
+4   1130.038681     0.533576          0.490673  RealAmplitudes    COBYLA    5
+5   1180.514680     0.525081          0.473642  RealAmplitudes    COBYLA    6
+6    998.497598     0.504045          0.507705    EfficientSU2    COBYLA    1
+7   1079.475374     0.511327          0.505272    EfficientSU2    COBYLA    2
+8   1168.438928     0.540858          0.498783    EfficientSU2    COBYLA    3
+9   1251.808671     0.529126          0.489862    EfficientSU2    COBYLA    4
+10  1336.839705     0.521440          0.473642    EfficientSU2    COBYLA    5
+11  1428.129870     0.514563          0.486618    EfficientSU2    COBYLA    6
+{'ansatz': 'ExcitationPreserving', 'optimizer': 'COBYLA', 'reps': 1}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  ...  optimizer reps
+0    930.781539     0.511327  ...     COBYLA    1
+1    980.124614     0.533172  ...     COBYLA    2
+2   1031.975230     0.507686  ...     COBYLA    3
+3   1080.460404     0.515372  ...     COBYLA    4
+4   1130.038681     0.533576  ...     COBYLA    5
+5   1180.514680     0.525081  ...     COBYLA    6
+6    998.497598     0.504045  ...     COBYLA    1
+7   1079.475374     0.511327  ...     COBYLA    2
+8   1168.438928     0.540858  ...     COBYLA    3
+9   1251.808671     0.529126  ...     COBYLA    4
+10  1336.839705     0.521440  ...     COBYLA    5
+11  1428.129870     0.514563  ...     COBYLA    6
+12  1130.887125     0.510113  ...     COBYLA    1
+
+[13 rows x 6 columns]
+{'ansatz': 'ExcitationPreserving', 'optimizer': 'COBYLA', 'reps': 2}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  ...  optimizer reps
+0    930.781539     0.511327  ...     COBYLA    1
+1    980.124614     0.533172  ...     COBYLA    2
+2   1031.975230     0.507686  ...     COBYLA    3
+3   1080.460404     0.515372  ...     COBYLA    4
+4   1130.038681     0.533576  ...     COBYLA    5
+5   1180.514680     0.525081  ...     COBYLA    6
+6    998.497598     0.504045  ...     COBYLA    1
+7   1079.475374     0.511327  ...     COBYLA    2
+8   1168.438928     0.540858  ...     COBYLA    3
+9   1251.808671     0.529126  ...     COBYLA    4
+10  1336.839705     0.521440  ...     COBYLA    5
+11  1428.129870     0.514563  ...     COBYLA    6
+12  1130.887125     0.510113  ...     COBYLA    1
+13  1380.203404     0.536812  ...     COBYLA    2
+
+[14 rows x 6 columns]
+{'ansatz': 'ExcitationPreserving', 'optimizer': 'COBYLA', 'reps': 3}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  ...  optimizer reps
+0    930.781539     0.511327  ...     COBYLA    1
+1    980.124614     0.533172  ...     COBYLA    2
+2   1031.975230     0.507686  ...     COBYLA    3
+3   1080.460404     0.515372  ...     COBYLA    4
+4   1130.038681     0.533576  ...     COBYLA    5
+5   1180.514680     0.525081  ...     COBYLA    6
+6    998.497598     0.504045  ...     COBYLA    1
+7   1079.475374     0.511327  ...     COBYLA    2
+8   1168.438928     0.540858  ...     COBYLA    3
+9   1251.808671     0.529126  ...     COBYLA    4
+10  1336.839705     0.521440  ...     COBYLA    5
+11  1428.129870     0.514563  ...     COBYLA    6
+12  1130.887125     0.510113  ...     COBYLA    1
+13  1380.203404     0.536812  ...     COBYLA    2
+14  1636.838712     0.522249  ...     COBYLA    3
+
+[15 rows x 6 columns]
+{'ansatz': 'ExcitationPreserving', 'optimizer': 'COBYLA', 'reps': 4}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  ...  optimizer reps
+0    930.781539     0.511327  ...     COBYLA    1
+1    980.124614     0.533172  ...     COBYLA    2
+2   1031.975230     0.507686  ...     COBYLA    3
+3   1080.460404     0.515372  ...     COBYLA    4
+4   1130.038681     0.533576  ...     COBYLA    5
+5   1180.514680     0.525081  ...     COBYLA    6
+6    998.497598     0.504045  ...     COBYLA    1
+7   1079.475374     0.511327  ...     COBYLA    2
+8   1168.438928     0.540858  ...     COBYLA    3
+9   1251.808671     0.529126  ...     COBYLA    4
+10  1336.839705     0.521440  ...     COBYLA    5
+11  1428.129870     0.514563  ...     COBYLA    6
+12  1130.887125     0.510113  ...     COBYLA    1
+13  1380.203404     0.536812  ...     COBYLA    2
+14  1636.838712     0.522249  ...     COBYLA    3
+15  1900.795466     0.527508  ...     COBYLA    4
+
+[16 rows x 6 columns]
+{'ansatz': 'ExcitationPreserving', 'optimizer': 'COBYLA', 'reps': 5}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  ...  optimizer reps
+0    930.781539     0.511327  ...     COBYLA    1
+1    980.124614     0.533172  ...     COBYLA    2
+2   1031.975230     0.507686  ...     COBYLA    3
+3   1080.460404     0.515372  ...     COBYLA    4
+4   1130.038681     0.533576  ...     COBYLA    5
+5   1180.514680     0.525081  ...     COBYLA    6
+6    998.497598     0.504045  ...     COBYLA    1
+7   1079.475374     0.511327  ...     COBYLA    2
+8   1168.438928     0.540858  ...     COBYLA    3
+9   1251.808671     0.529126  ...     COBYLA    4
+10  1336.839705     0.521440  ...     COBYLA    5
+11  1428.129870     0.514563  ...     COBYLA    6
+12  1130.887125     0.510113  ...     COBYLA    1
+13  1380.203404     0.536812  ...     COBYLA    2
+14  1636.838712     0.522249  ...     COBYLA    3
+15  1900.795466     0.527508  ...     COBYLA    4
+16  2168.926088     0.516990  ...     COBYLA    5
+
+[17 rows x 6 columns]
+{'ansatz': 'ExcitationPreserving', 'optimizer': 'COBYLA', 'reps': 6}
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+        CV Time  Train Score  ...  optimizer reps
+0    930.781539     0.511327  ...     COBYLA    1
+1    980.124614     0.533172  ...     COBYLA    2
+2   1031.975230     0.507686  ...     COBYLA    3
+3   1080.460404     0.515372  ...     COBYLA    4
+4   1130.038681     0.533576  ...     COBYLA    5
+5   1180.514680     0.525081  ...     COBYLA    6
+6    998.497598     0.504045  ...     COBYLA    1
+7   1079.475374     0.511327  ...     COBYLA    2
+8   1168.438928     0.540858  ...     COBYLA    3
+9   1251.808671     0.529126  ...     COBYLA    4
+10  1336.839705     0.521440  ...     COBYLA    5
+11  1428.129870     0.514563  ...     COBYLA    6
+12  1130.887125     0.510113  ...     COBYLA    1
+13  1380.203404     0.536812  ...     COBYLA    2
+14  1636.838712     0.522249  ...     COBYLA    3
+15  1900.795466     0.527508  ...     COBYLA    4
+16  2168.926088     0.516990  ...     COBYLA    5
+17  2447.730332     0.527913  ...     COBYLA    6
+
+[18 rows x 6 columns]
+Best score on validation set: 0.5239253852392539
+No gradient function provided, creating a gradient function. If your Sampler requires transpilation, please provide a pass manager.
+Training model
+
+Job ID:              85633
+Job Name:            vqc_training_capstone
+Number of Nodes:     1
+Number of CPU cores: 10
+Number of Tasks:     1
+Partition:           gpu_2day

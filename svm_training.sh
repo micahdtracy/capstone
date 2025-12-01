@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#SBATCH -J svm_2training_capstone
+#SBATCH -J svm_training_capstone
 #SBATCH -N 1
-#SBATCH -c 20
+#SBATCH -c 10
 #SBATCH -n 1
-#SBATCH -t 6:00:00
+#SBATCH -t 10:00:00
 
 echo "Running python script"
-python3 -u svm_training2.py
+python3 svm_training.py
 
 echo ""
 echo "Job ID:              $SLURM_JOB_ID"

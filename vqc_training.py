@@ -1,4 +1,5 @@
 import time 
+import numpy as np
 import pandas as pd
 import pyreadstat
 from sklearn.model_selection import train_test_split
@@ -7,10 +8,11 @@ from sklearn.decomposition import PCA
 from qiskit.circuit.library import ZZFeatureMap
 from qiskit.circuit.library import RealAmplitudes
 from qiskit_machine_learning.algorithms.classifiers import VQC
-from qiskit.circuit.library import EfficientSU2
+from qiskit.circuit.library import EfficientSU2, ExcitationPreserving
 from qiskit_machine_learning.optimizers import COBYLA
 from qiskit.primitives import StatevectorSampler as Sampler
-
+from itertools import product
+from sklearn.metrics import recall_score, precision_score, f1_score
 
 start_time = time.time()
 print("Reading in data.")
@@ -36,81 +38,94 @@ X_trains_components = pca.transform(X_trains)
 X_tests_components = pca.transform(X_tests)
 
 num_features = X_trains_components.shape[1]
-print("Starting quantum stuff: RealAmplitudes")
+print("Starting quantum training.")
 feature_map = ZZFeatureMap(feature_dimension=num_features, reps=1)
 
-for i in range(3, 11):
-    ansatz = RealAmplitudes(num_qubits=num_features, reps=i)
+def kfold_indices(data, k):
+    fold_size = len(data) // k
+    indices = np.arange(len(data))
+    folds = []
+    for i in range(k):
+        test_indices = indices[i * fold_size: (i + 1) * fold_size]
+        train_indices = np.concatenate([indices[:i * fold_size], indices[(i + 1) * fold_size:]])
+        folds.append((train_indices, test_indices))
+    return folds
 
-    # maybe try some different optimizers? different numbers of layers?
-    # Maybe look here to figure out how to tune hyperparameters?
-    # https://github.com/qiskit-community/qiskit-machine-learning/issues/494
-    # https://quantumcomputing.stackexchange.com/questions/21574/how-to-set-hyper-parameters-for-a-variational-quantum-classifier-qiskit
-    # https://arxiv.org/pdf/2405.12354
-    # https://www.sciencedirect.com/science/article/pii/S2950257824000076
-    # https://aws.amazon.com/blogs/quantum-computing/tracking-quantum-experiments-with-amazon-braket-hybrid-jobs-and-amazon-sagemaker-experiments/
-    optimizer = COBYLA(maxiter=100)
+k = 3
+fold_indices = kfold_indices(X_trains_components, k)
 
-    sampler = Sampler()
+scores = pd.DataFrame(columns=["CV Time", "Train Score", "Validation Score", "ansatz", "optimizer", "reps"])
 
+parameter_grid = {
+    "ansatz": ["RealAmplitudes", "EfficientSU2", "ExcitationPreserving"],
+    "optimizer": ["COBYLA"],
+    "reps": [1, 2, 3, 4, 5, 6]
+    }
 
-    vqc = VQC(
-        sampler=sampler,
+param_dict = {"RealAmplitudes": RealAmplitudes, "EfficientSU2": EfficientSU2, "ExcitationPreserving": ExcitationPreserving, "COBYLA": COBYLA(maxiter=40)}
+param_names = parameter_grid.keys()
+param_values = parameter_grid.values()
+
+for combination_values in product(*param_values):
+    cv_time_start = time.time()
+    current_params = dict(zip(param_names, combination_values))
+    print(current_params)
+    current_model_train_scores = []
+    current_model_val_scores = []
+    for train_indices, val_indices in fold_indices:
+        X_train_split, y_train_split = X_trains_components[train_indices], y_train[train_indices]
+        X_val, y_val = X_trains_components[val_indices], y_train[val_indices]
+        vqc = VQC(
+        sampler=Sampler(),
         feature_map=feature_map,
-        ansatz=ansatz,
-        optimizer=optimizer,
+        ansatz=param_dict[current_params["ansatz"]](num_qubits=num_features, reps=current_params['reps']),
+        optimizer=param_dict[current_params['optimizer']],
     )
+        print("Training model")
+        vqc.fit(X_train_split, y_train_split)
+        
+        train_score = vqc.score(X_train_split, y_train_split)
+        
+        fold_score = vqc.score(X_val, y_val)
+        
+        current_model_train_scores.append(train_score)
+        current_model_val_scores.append(fold_score)
+    cv_time_end = time.time()
+    elapsed_cv_time = cv_time_end - cv_time_start
+    mean_accuracy_train = np.mean(current_model_train_scores)
+    mean_accuracy_val = np.mean(current_model_val_scores)
+    new_row = pd.DataFrame([[elapsed_cv_time, mean_accuracy_train, mean_accuracy_val, current_params['ansatz'], current_params['optimizer'], current_params['reps']]], columns=["CV Time", "Train Score", "Validation Score", "ansatz", "optimizer", "reps"])
+    scores = pd.concat([scores, new_row], ignore_index=True)
+    print(scores)
 
-    # clear objective value history
-    objective_func_vals = []
+scores.to_csv("vqc_cv_results.csv", index=False)
+# Find best model
+scores.sort_values(by="Validation Score", ascending=False, inplace=True)
+scores.reset_index(drop=True, inplace=True)
 
-    start = time.time()
-    print("Starting training")
-    vqc.fit(X_trains_components, y_train)
-    elapsed = time.time() - start
+print("Best score on validation set:", scores.iloc[0]['Validation Score'])
 
-    print(f"Training time for {i} reps: {round(elapsed)} seconds")
+# Train the best model
+best_model_start_time = time.time()
 
-    train_score_q4 = vqc.score(X_trains_components, y_train)
-    test_score_q4 = vqc.score(X_tests_components, y_test)
+best_vqc = VQC(
+sampler=Sampler(),
+feature_map=feature_map,
+ansatz=param_dict[scores.iat[0,3]](num_qubits=num_features, reps=scores.iat[0,5]),
+optimizer=param_dict[scores.iat[0,4]],
+)
+print("Training model")
+best_vqc.fit(X_trains_components, y_train)
+best_model_end_time = time.time()
+best_model_elapsed_time = best_model_end_time - best_model_start_time
+train_score = best_vqc.score(X_trains_components, y_train)
+test_score = best_vqc.score(X_tests_components, y_test)
 
-    print(f"Quantum VQC RealAmplitudes, {i} reps on the training dataset: {train_score_q4:.2f}")
-    print(f"Quantum VQC RealAmplitudes, {i} reps on the test dataset:     {test_score_q4:.2f}")
+test_predictions = best_vqc.predict(X_tests_components)
+recall = recall_score(y_test, test_predictions)
+precision = precision_score(y_test, test_predictions)
+f1 = f1_score(y_test, test_predictions)
+final_columns = ["TrainTime", "ansatz", "optimizer", "reps", "TrainAccuracy", "Accuracy", "Recall", "Precision", "F1 Score"]
 
-print("Training EfficientSU2")
-for i in range(3, 11):
-
-    # change reps, change type of ansatz
-    ansatz = EfficientSU2(num_qubits=num_features, reps=i)
-    optimizer = COBYLA(maxiter=40)
-
-    vqc = VQC(
-        sampler=sampler,
-        feature_map=feature_map,
-        ansatz=ansatz,
-        optimizer=optimizer,
-    )
-
-    # clear objective value history
-    objective_func_vals = []
-
-    start = time.time()
-    print("Starting training")
-    vqc.fit(X_trains_components, y_train)
-    elapsed = time.time() - start
-
-    print(f"Training time for {i} reps: {round(elapsed)} seconds")
-
-    train_score_q2_eff = vqc.score(X_trains_components, y_train)
-    test_score_q2_eff = vqc.score(X_tests_components, y_test)
-
-    print(f"Quantum VQC on the training dataset using EfficientSU2 with {i} reps: {train_score_q2_eff:.2f}")
-    print(f"Quantum VQC on the test dataset using EfficientSU2 with {i} reps:     {test_score_q2_eff:.2f}")
-
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print(f"Elapsed time to train VQC: {elapsed_time:.4f} seconds")
-
-
-
-
+final_results = pd.DataFrame([[best_model_elapsed_time, scores.iat[0,3], scores.iat[0,4], scores.iat[0,5], train_score, test_score, recall, precision, f1]], columns=final_columns)
+final_results.to_csv("best_vqc_results.csv", index=False)

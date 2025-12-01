@@ -4,7 +4,7 @@
 #SBATCH -N 1
 #SBATCH -c 10
 #SBATCH -n 1
-#SBATCH -t 6:00:00
+#SBATCH -t 2-00:00:00
 
 echo "Running python script"
 python3 -u vqc_training.py
